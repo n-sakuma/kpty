@@ -5,9 +5,6 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -21,6 +18,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'pg'
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -36,3 +36,29 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+#
+
+group :test, :development do
+  # development
+  gem "rails3-generators"
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-nav'
+  gem 'pry-coolline'
+  gem 'pry-remote'
+  gem 'debugger'
+  # gem 'rails_best_practices'
+  # gem 'newrelic_rpm'
+  # gem 'ci_reporter'
+  # gem 'simplecov-rcov'
+  # gem 'parallel_tests'
+
+  # test
+  gem "rspec-rails"
+  gem "capybara"
+  gem 'launchy'
+  gem 'turn', '0.8.2', :require => false   # Pretty printed test output
+  gem "factory_girl_rails", :require => false
+  # gem 'guard-rspec'
+  # gem 'guard-spork'
+end
