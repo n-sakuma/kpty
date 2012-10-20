@@ -1,0 +1,10 @@
+<div id="<%= "#{thing.downcase}_area" %>">
+  <% thing.constantize.where(event_id: @event.id).each do |t| %>
+    <li>
+      <span class="created_at"><%= t.created_at.strftime("%H:%M") %></span>
+      <%= t.content %>
+      <%= link_to 'Delete', thing_path(@event, t), method: :delete, remote: true %>
+    </li>
+  <% end %>
+</div>
+

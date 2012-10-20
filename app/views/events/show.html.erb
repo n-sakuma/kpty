@@ -11,18 +11,37 @@
 </p>
 
 <p>
-  <b>Index:</b>
-  <%= @event.index %>
+  <b>Keep</b>
+  <%= render 'things/things', thing: 'Keep' %>
+  <%= form_for Thing.new, url: things_path(@event), :remote => true do |f| %>
+    <%= f.hidden_field :event_id, value: @event.id %>
+    <%= f.hidden_field :type, value: 'Keep' %>
+    <%= f.text_field :content, id: 'keep_content_field' %>
+    <%= f.submit "Send" %>
+  <% end %>
 </p>
 
 <p>
-  <b>Show:</b>
-  <%= @event.show %>
+  <b>Problem</b>
+  <%= render 'things/things', thing: 'Problem' %>
+  <%= form_for Thing.new, url: things_path(@event), :remote => true do |f| %>
+    <%= f.hidden_field :event_id, value: @event.id %>
+    <%= f.hidden_field :type, value: 'Problem' %>
+    <%= f.text_field :content, id: 'problem_content_field' %>
+    <%= f.submit "Send" %>
+  <% end %>
 </p>
 
 <p>
-  <b>Edit:</b>
-  <%= @event.edit %>
+  <b>Try</b>
+  <%= render 'things/things', thing: 'Try' %>
+  <%= form_for Thing.new, url: things_path(@event), :remote => true do |f| %>
+    <%= f.hidden_field :event_id, value: @event.id %>
+    <%= f.hidden_field :type, value: 'Try' %>
+    <%= f.text_field :content, id: 'try_content_field' %>
+    <%= f.submit "Send" %>
+  <% end %>
+
 </p>
 
 

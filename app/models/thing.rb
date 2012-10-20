@@ -1,3 +1,5 @@
 class Thing < ActiveRecord::Base
-  attr_protected :id, :created_at, :updated_at
+  attr_accessible :type, :content, :event_id
+
+  belongs_to :event
 end
