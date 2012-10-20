@@ -1,0 +1,2 @@
+class Problem < Thing
+end
