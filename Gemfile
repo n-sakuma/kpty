@@ -19,7 +19,7 @@ end
 
 gem 'jquery-rails'
 gem 'pg'
-
+gem "twitter-bootstrap-rails"
 
 
 # To use ActiveModel has_secure_password
