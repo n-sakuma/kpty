@@ -4,9 +4,7 @@
       <div class="span3">
         <div class="well">
           <%= thing_obj.content %>
-          <%= button_tag(class: 'close') do %>
-            <%= link_to raw('&times;'), thing_path(@event, thing_obj), method: :delete, remote: true %>
-          <% end -%>
+          <%= link_to raw('&times;'), thing_path(@event, thing_obj), method: :delete, remote: true, class: 'close' %>
         </div>
       </div>
     <% end %>
