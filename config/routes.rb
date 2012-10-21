@@ -1,6 +1,8 @@
 Kpty::Application.routes.draw do
 
 
+  root to: 'events#index'
+
   scope path: 'events/:event_id' do
     controller :things do
       post "things", action: :create, as: 'things'
