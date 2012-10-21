@@ -1,6 +1,8 @@
-<li>
-  <span class="created_at"><%= thing.created_at.strftime("%H:%M") %></span>
-  <%= thing.content %>
-  <%= link_to 'Delete', thing_path(@event, thing), method: :delete, remote: true %>
-</li>
-
+<div class="span3">
+  <div class="well">
+    <%= thing.content %>
+    <%= button_tag(class: 'close') do %>
+      <%= link_to raw('&times;'), thing_path(@event, thing), method: :delete, remote: true %>
+    <% end -%>
+  </div>
+</div>

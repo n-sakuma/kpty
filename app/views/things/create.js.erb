@@ -1,2 +1,2 @@
-$("#<%= "#{@thing.type.underscore}_area" %>").append("<%= escape_javascript render(@thing) %>");
+$("#<%= "#{@thing.type.underscore}_area" %> > .row").append("<%= escape_javascript render(@thing) %>");
 $("#<%= "#{@thing.type.underscore}_content_field" %>").val("");

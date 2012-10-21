@@ -1,10 +1,14 @@
 <div id="<%= "#{thing.downcase}_area" %>">
-  <% thing.constantize.where(event_id: @event.id).each do |t| %>
-    <li>
-      <span class="created_at"><%= t.created_at.strftime("%H:%M") %></span>
-      <%= t.content %>
-      <%= link_to 'Delete', thing_path(@event, t), method: :delete, remote: true %>
-    </li>
-  <% end %>
+  <div class="row show-grid">
+    <% thing.constantize.where(event_id: @event.id).each do |thing_obj| %>
+      <div class="span3">
+        <div class="well">
+          <%= thing_obj.content %>
+          <%= button_tag(class: 'close') do %>
+            <%= link_to raw('&times;'), thing_path(@event, thing_obj), method: :delete, remote: true %>
+          <% end -%>
+        </div>
+      </div>
+    <% end %>
+  </div><!--.row-->
 </div>
-
