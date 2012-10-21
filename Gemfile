@@ -20,6 +20,8 @@ end
 
 gem 'jquery-rails'
 gem 'pg'
+gem "private_pub"
+gem 'thin'
 
 
 # To use ActiveModel has_secure_password
