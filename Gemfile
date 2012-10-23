@@ -18,6 +18,7 @@ group :assets do
   gem "twitter-bootstrap-rails"
 end
 
+gem "haml-rails"
 gem 'jquery-rails'
 gem 'pg'
 gem "private_pub"

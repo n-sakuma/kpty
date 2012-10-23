@@ -1,0 +1,5 @@
+= form_for Thing.new, url: things_path(@event), :remote => true do |f|
+  = f.hidden_field :event_id, value: @event.id
+  = f.hidden_field :type, value: thing
+  = f.text_field :content, id: "#{thing.downcase}_content_field"
+  = f.submit "Send"

@@ -1,0 +1,7 @@
+%div{:id => "#{thing.downcase}_area"}
+  .row.show-grid
+    - thing.constantize.where(event_id: @event.id).each do |thing_obj|
+      .span3
+        .well
+          = thing_obj.content
+          = link_to raw('&times;'), thing_path(@event, thing_obj), method: :delete, remote: true, class: 'close'

@@ -1,4 +1,0 @@
-<% publish_to "/events/#{@event.id}" do %>
-  $("#<%= "#{@thing.type.underscore}_area" %> > .row").append("<%= escape_javascript render(@thing) %>");
-<% end %>
-$("#<%= "#{@thing.type.underscore}_content_field" %>").val("");

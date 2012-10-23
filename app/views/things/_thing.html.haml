@@ -1,0 +1,4 @@
+.span3
+  .well
+    = thing.content
+    = link_to raw('×'), thing_path(@event, thing), method: :delete, remote: true, class: 'close'
