@@ -1,4 +1,4 @@
 .span3
-  .well
+  .well{class: (thing.type.downcase)}
     = thing.content
     = link_to raw('×'), thing_path(@event, thing), method: :delete, remote: true, class: 'close'
