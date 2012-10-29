@@ -2,4 +2,4 @@
   = f.hidden_field :event_id, value: @event.id
   = f.hidden_field :type, value: thing
   = f.text_field :content, id: "#{thing.downcase}_content_field"
-  = f.submit "Send"
+  = f.submit thing, class: 'btn'
