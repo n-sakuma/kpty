@@ -1,3 +1,7 @@
-- publish_to "/events/#{@event.id}" do
-  $("##{"#{@thing.type.underscore}_area"} > .row").append("#{escape_javascript render(@thing)}");
-$("##{"#{@thing.type.underscore}_content_field"}").val("");
+- if @thing.valid?
+  - publish_to "/events/#{@event.id}" do
+    $("##{"#{@thing.type.underscore}_area"} > .row").append("#{escape_javascript render(@thing)}");
+  $("##{"#{@thing.type.underscore}_content_field"}").val("");
+- else
+  $('#error_area').text("#{@thing.type.underscore}が登録できませんでした");
+  runEffect();
