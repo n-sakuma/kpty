@@ -1,8 +1,10 @@
 Kpty::Application.routes.draw do
 
+  root to: 'welcome#index'
+
+  resources :welcome, :only => [:index]
   resources :projects
 
-  root to: 'events#index'
   match '/login' => 'sessions#new', :as => :login
 
   match '/auth/:provider/callback' => 'sessions#callback'
