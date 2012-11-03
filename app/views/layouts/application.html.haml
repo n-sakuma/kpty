@@ -32,6 +32,11 @@
           = javascript_include_tag "application"
   %body
     .navbar
+      - if current_user
+        = "Welcome#{current_user.name}"
+        = link_to "Sign Out", signout_path
+      - else
+        = link_to "Sign in with Twitter", "/auth/twitter"
       .navbar-inner
         .container
           %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}

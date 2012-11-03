@@ -9,8 +9,10 @@ Kpty::Application.routes.draw do
       delete "thing/:id", action: :destroy, as: 'thing'
     end
   end
-
   resources :events
+
+  match '/auth/:provider/callback' => 'sessions#callback'
+  match "/signout" => "sessions#destroy", :as => :signout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
