@@ -1,7 +1,10 @@
 Kpty::Application.routes.draw do
 
-
   root to: 'events#index'
+  match '/login' => 'sessions#new', :as => :login
+
+  match '/auth/:provider/callback' => 'sessions#callback'
+  match "/signout" => "sessions#destroy", :as => :signout
 
   scope path: 'events/:event_id' do
     controller :things do
@@ -11,8 +14,6 @@ Kpty::Application.routes.draw do
   end
   resources :events
 
-  match '/auth/:provider/callback' => 'sessions#callback'
-  match "/signout" => "sessions#destroy", :as => :signout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
