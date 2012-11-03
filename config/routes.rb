@@ -1,5 +1,7 @@
 Kpty::Application.routes.draw do
 
+  resources :projects
+
   root to: 'events#index'
   match '/login' => 'sessions#new', :as => :login
 
