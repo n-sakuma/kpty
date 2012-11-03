@@ -40,10 +40,10 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(params[:project].merge(:creator_id => current_user.id))
+    @project = current_user.projects.create(params[:project].merge(:creator_id => current_user.id))
 
     respond_to do |format|
-      if @project.save
+      if @project.valid?
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
