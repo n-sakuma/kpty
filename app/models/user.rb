@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
-  has_many :affiliations
+  has_many :affiliations, :dependent => :destroy
   has_many :projects, :through => :affiliations
 
   def self.create_with_omniauth(auth)
