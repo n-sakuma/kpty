@@ -4,4 +4,4 @@
       .span3
         .well{class: (thing.downcase)}
           = thing_obj.content
-          = link_to raw('&times;'), thing_path(@event, thing_obj), method: :delete, remote: true, class: 'close'
+          = link_to raw('&times;'), project_event_thing_path(@project, @event, thing_obj), method: :delete, remote: true, class: 'close'

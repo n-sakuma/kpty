@@ -37,18 +37,10 @@
         = link_to "Sign Out", signout_path
       .navbar-inner
         .container
-          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand{:href => "#"} Kpty
-          .container.nav-collapse
-            / <ul class="nav">
-            / <li></haml:block><haml:silent></haml:silent><haml:block></li>
-            / <li></haml:block><haml:silent></haml:silent><haml:block></li>
-            / <li></haml:block><haml:silent></haml:silent><haml:block></li>
-            / </ul>
-          / /.nav-collapse
+          %a.brand{:href => (root_path)} Kpty
+          - unless @project.new_record?
+            = link_to raw("&raquo; #{@project.name}"), project_path(@project), :class => 'brand'
+
     .container
       = yield
       %footer

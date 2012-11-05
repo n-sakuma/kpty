@@ -1,4 +1,4 @@
-class ThingsController < ApplicationController
+class ThingsController < ProjectBaseController
   before_filter :find_event, only: [:create, :destroy]
 
   def create
@@ -14,6 +14,6 @@ class ThingsController < ApplicationController
   private
 
   def find_event
-    @event = Event.find(params[:event_id])
+    @event = @project.events.find(params[:event_id])
   end
 end

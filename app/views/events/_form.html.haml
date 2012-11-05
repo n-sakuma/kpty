@@ -1,4 +1,7 @@
-= form_for @event, :html => { :class => 'form-horizontal' } do |f|
+- url = @event.new_record? ? project_events_path(@project) : project_event_path(@project, @event)
+- http_method = @event.new_record? ? :post : :put
+
+= form_for @event, :url => url, :method => http_method, :class => 'form-horizontal' do |f|
   .control-group
     = f.label :title, :class => 'control-label'
     .controls
@@ -10,4 +13,4 @@
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")),
-      events_path, :class => 'btn'
+      project_events_path(@project), :class => 'btn'

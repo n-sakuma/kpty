@@ -2,6 +2,11 @@
 .page-header
   %h1=t '.title', :default => model_class.model_name.human
 
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), projects_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_project_path(@project), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), project_path(@project), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+
 %p
   %strong= model_class.human_attribute_name(:name) + ':'
   %br
@@ -15,7 +20,24 @@
   %br
   = @project.creator_id
 
-.form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), projects_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_project_path(@project), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), project_path(@project), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+= link_to 'KPTを始める', new_project_event_path(@project), :class => 'btn'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Event.human_attribute_name(:id)
+      %th= Event.human_attribute_name(:title)
+      %th= Event.human_attribute_name(:description)
+      %th= Event.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td= link_to event.id, project_event_path(@project, event)
+        %td= event.title
+        %td= event.description
+        %td=l event.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_project_event_path(@project, event), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), project_event_path(@project, event), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+

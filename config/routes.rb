@@ -1,22 +1,18 @@
 Kpty::Application.routes.draw do
 
   root to: 'welcome#index'
-
-  resources :welcome, :only => [:index]
-  resources :projects
-
   match '/login' => 'sessions#new', :as => :login
-
   match '/auth/:provider/callback' => 'sessions#callback'
   match "/signout" => "sessions#destroy", :as => :signout
 
-  scope path: 'events/:event_id' do
-    controller :things do
-      post "things", action: :create, as: 'things'
-      delete "thing/:id", action: :destroy, as: 'thing'
+  resources :welcome, :only => [:index]
+
+  resources :projects do
+    resources :events do
+      match 'things' => 'things#create', :as => 'things'
+      match 'thing/:id' => 'things#destroy', :as => 'thing'
     end
   end
-  resources :events
 
 
   # The priority is based upon order of creation:
