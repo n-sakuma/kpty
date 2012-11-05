@@ -3,5 +3,6 @@ class Project < ActiveRecord::Base
 
   has_many :affiliations
   has_many :users, :through => :affiliations, :dependent => :destroy
+  has_many :events, :dependent => :destroy
 
 end
