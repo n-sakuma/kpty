@@ -38,7 +38,7 @@
       .navbar-inner
         .container
           %a.brand{:href => (root_path)} Kpty
-          - unless @project.new_record?
+          - if @project && (not @project.new_record?)
             = link_to raw("&raquo; #{@project.name}"), project_path(@project), :class => 'brand'
 
     .container
