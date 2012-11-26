@@ -18,7 +18,7 @@
 %p
   %strong= model_class.human_attribute_name(:creator_id) + ':'
   %br
-  = @project.creator_id
+  = @project.creator.name
 
 = link_to 'KPTを始める', new_project_event_path(@project), :class => 'btn'
 
