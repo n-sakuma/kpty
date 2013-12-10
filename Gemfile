@@ -54,6 +54,7 @@ group :test, :development do
   gem 'pry-coolline'
   gem 'pry-remote'
   gem 'debugger'
+  gem 'foreman'
   # gem 'rails_best_practices'
   # gem 'newrelic_rpm'
   # gem 'ci_reporter'
